@@ -1,5 +1,6 @@
 /*
  * router.js
+ * from www.nodebeginner.org
  */
 
 function route(pathname) {
