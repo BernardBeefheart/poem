@@ -13,6 +13,7 @@ var http_head_inited = false;
 
 function init() {
 	http_head[".html"] = ["text/html", configuration.get_site_encoding()];
+	http_head[".css"] = ["text/css", configuration.get_site_encoding()];
 	http_head[".png"] = ["image/png", null];
 	http_head[".jpg"] = ["image/jpeg", null];
 	http_head[".jpeg"] = ["image/jpeg", null];
