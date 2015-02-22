@@ -818,7 +818,7 @@ small {
 nav {
   width: 230px;
   position: fixed;
-  top: 220px;
+  /*top: 220px;*/
   left: 50%;
   margin-left: -580px;
   text-align: right;
@@ -1012,4 +1012,14 @@ footer {
 /* btat1 */
 section p {
 	text-align: justify;
+}
+
+nav.innertoc {
+  top: 220px;
+}
+
+nav p {
+	font-weight: bold;
+  font-size: 1.2em;
+  line-height: 1.2em;
 }

@@ -1,3 +1,19 @@
+var extlinkPosition = function () {
+  var pos = $(".innertoc").position();
+  var hinnertoc = parseInt($('.innertoc').css("height")) + pos.top;
+  hinnertoc = hinnertoc.toString() + 'px';
+  $('.externallinks').css('top', hinnertoc);
+  return hinnertoc;
+}
+
+/*
+var dbgPos = function () {
+	var hinnertoc = extlinkPosition();
+	var top = $('.externallinks').position().top;
+	console.log("DBG: hinnertoc : " + hinnertoc + " top : " + top);
+}
+*/
+
 var sectionHeight = function() {
   var total    = $(window).height(),
       $section = $('section').css('height','auto');
@@ -14,15 +30,15 @@ $(window).resize(sectionHeight);
 
 $(document).ready(function(){
   $("section h1, section h2").each(function(){
-    $("nav ul").append("<li class='tag-" + this.nodeName.toLowerCase() + "'><a href='#" + $(this).text().toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g,'') + "'>" + $(this).text() + "</a></li>");
+    $("nav.innertoc ul").append("<li class='tag-" + this.nodeName.toLowerCase() + "'><a href='#" + $(this).text().toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g,'') + "'>" + $(this).text() + "</a></li>");
     $(this).attr("id",$(this).text().toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g,''));
-    $("nav ul li:first-child a").parent().addClass("active");
+    $("nav.innertoc ul li:first-child a").parent().addClass("active");
   });
   
-  $("nav ul li").on("click", "a", function(event) {
+  $("nav.innertoc ul li").on("click", "a", function(event) {
     var position = $($(this).attr("href")).offset().top - 190;
     $("html, body").animate({scrollTop: position}, 400);
-    $("nav ul li a").parent().removeClass("active");
+    $("nav.innertoc ul li a").parent().removeClass("active");
     $(this).parent().addClass("active");
     event.preventDefault();    
   });
@@ -30,6 +46,11 @@ $(document).ready(function(){
   sectionHeight();
   
   $('img').load(sectionHeight);
+  extlinkPosition();
+/*
+  dbgPos();
+  console.log("Ready done");
+ */
 });
 
 fixScale = function(doc) {
@@ -51,3 +72,10 @@ fixScale = function(doc) {
     doc[addEvent](type, fix, true);
   }
 };
+
+/*
+$( window ).load(function() {
+  dbgPos();
+  console.log("Load done");
+});
+*/
