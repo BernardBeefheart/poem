@@ -767,6 +767,7 @@ header p {
   color: #9d7f0d;
   text-transform: uppercase;
   text-shadow: rgba(255, 255, 255, 0.2) 0 1px 0;
+  padding: 0 8px 0 8px;
 }
 #banner ul {
   list-style: none;
