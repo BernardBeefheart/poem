@@ -6,13 +6,6 @@ var extlinkPosition = function () {
   return hinnertoc;
 }
 
-/*
-var dbgPos = function () {
-	var hinnertoc = extlinkPosition();
-	var top = $('.externallinks').position().top;
-	console.log("DBG: hinnertoc : " + hinnertoc + " top : " + top);
-}
-*/
 
 var sectionHeight = function() {
   var total    = $(window).height(),
@@ -47,10 +40,6 @@ $(document).ready(function(){
   
   $('img').load(sectionHeight);
   extlinkPosition();
-/*
-  dbgPos();
-  console.log("Ready done");
- */
 });
 
 fixScale = function(doc) {
@@ -73,9 +62,3 @@ fixScale = function(doc) {
   }
 };
 
-/*
-$( window ).load(function() {
-  dbgPos();
-  console.log("Load done");
-});
-*/
