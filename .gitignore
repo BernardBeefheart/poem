@@ -18,3 +18,4 @@ bin/
 *.mdb
 /.project
 pp.*
+/nbproject/private/
