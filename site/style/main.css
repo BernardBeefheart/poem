@@ -5,7 +5,8 @@
 /* ============================================== */
 
 body {
-	width: 78%;
+	width: 75%;
+	max-width: 650px;
 	margin: auto;
 	font-family: LMRoman10, 'GFS Artimisia', Georgia, 'Caslon FS', Baskerville, Times, "Times New Roman", serif;
 	font-size: 14px;
@@ -68,16 +69,24 @@ footer p {
 	font-size: 0.9em;
 }
 
-section p {
+section p, section li {
 	font-size:1.1em;
 	margin: 0.1em;
 }
 
-section p code {
+section  code, section pre {
 	font-size: 0.8em;
+}
+
+section  code {
 	font-weight: bold;
 }
 
+section pre {
+	background-color: #bbb;
+	padding: 8px;
+	border-left: 2px solid black;
+}
 /* ============================================== */
 nav {
 	display: block;
@@ -118,10 +127,13 @@ nav a:hover {
 	text-align: left;
 }
 
-.mttext p {
+.mttext p, .mttext li {
 	text-align: justify;
 }
 
+.nicepar p {
+	margin-bottom: 1em;
+}
 /* ============================================== */
 
 .twocols {
@@ -180,5 +192,12 @@ nav a:hover {
 }
 .mtsimpleblock h3 {
 	text-align: center;
+}
+/* ============================================== */
+img {
+	display: block;
+	max-width: 600px;
+	max-height: 600px;
+	margin: auto;
 }
 /* ============================================== */
