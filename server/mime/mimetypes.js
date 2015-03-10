@@ -33,7 +33,7 @@ var http_head_inited = false;
 
 function init() {
 	function decryptfile(filecontent) {
-		
+
 	}
 	function on_file(err, filecontent) {
 		if (err) {
