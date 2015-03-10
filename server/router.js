@@ -17,6 +17,7 @@ function init() {
 	http_head[".png"] = ["image/png", null];
 	http_head[".jpg"] = ["image/jpeg", null];
 	http_head[".jpeg"] = ["image/jpeg", null];
+	http_head[".js"] = ["application/javascript", null];
 }
 
 function get_http_header(pathname) {
