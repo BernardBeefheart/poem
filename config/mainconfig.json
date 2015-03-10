@@ -1,6 +1,6 @@
 {
 	"site_name": "poem",
 	"port": 8888,
-	"site_root": "../site",
+	"site_root": "./site",
 	"site_encoding": "utf8"
 }

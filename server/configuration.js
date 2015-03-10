@@ -14,8 +14,8 @@ var config_data = {
 
 var main_menu = null;
 
-var jsconfig = '../config/mainconfig.json';
-var jsmain_menu = '../config/mainmenu.json';
+var jsconfig = './config/mainconfig.json';
+var jsmain_menu = './config/mainmenu.json';
 
 function get_file_from_site(pathname) {
 	return config_data.site_root + pathname;
