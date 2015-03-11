@@ -201,3 +201,21 @@ img {
 	margin: auto;
 }
 /* ============================================== */
+.main {
+	display: table;
+}
+
+.main > aside, .main > section {
+	display: table-cell;
+}
+
+.main > aside {
+	min-width: 180px;
+	border-right: 2px solid black;
+
+}
+
+.main > section {
+	padding-left: 8px;
+	padding-right: 8px;
+}
