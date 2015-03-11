@@ -31,6 +31,7 @@
 var fs = require('fs');
 
 function load_json_file(filename) {
+	console.log('loading json file: ' + filename);
 	return JSON.parse(fs.readFileSync(filename, 'utf8'));
 }
 

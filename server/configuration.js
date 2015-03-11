@@ -15,7 +15,7 @@ var config_data = {
 var main_menu = null;
 
 var jsconfig = './config/mainconfig.json';
-var jsmain_menu = './config/mainmenu.json';
+var jsmain_menu = '/mainmenu.json';
 
 function get_file_from_site(pathname) {
 	return config_data.site_root + pathname;
@@ -42,17 +42,17 @@ function init_configuration() {
 		console.log("loading configuration ...");
 		config_data = pages.load_json_file(jsconfig);
 		console.log("loading configuration ok");
-	} 
+		try {
+			console.log("loading main menu ...");
+			main_menu = pages.load_json_file(get_file_from_site(jsmain_menu));
+			console.log("loading main menu ok");
+		}
+		catch (err) {
+			console.error("ERR " + err + " Cannot read main menu file " + jsconfig);
+		}
+	}
 	catch (err) {
 		console.error("ERR " + err + " Cannot read configuration file " + jsconfig);
-	}
-	try {
-		console.log("loading main menu ...");
-		config_data = pages.load_json_file(jsconfig);
-		console.log("loading main menu ok");
-	} 
-	catch (err) {
-		console.error("ERR " + err + " Cannot read main menu file " + jsconfig);
 	}
 }
 

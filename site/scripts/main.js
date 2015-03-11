@@ -32,7 +32,7 @@
 function load_main_menu() {
 	$.ajax({
 		type: 'GET',
-		url: "/config/mainmenu.json",
+		url: "/mainmenu.json",
 		success: function (feed) {
 			var len = feed.length;
 			var html = '';
