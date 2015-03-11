@@ -31,18 +31,19 @@
 var cache = [];
 
 function test_cache(file_properties) {
-	if (cache[file_properties.pathname] === undefined) {
-		console.log('CACHE not found: ' + file_properties.pathname);
+	if (!file_properties.cachable) {
+		return null;
+	} else if (cache[file_properties.pathname] === undefined) {
 		return null;
 	} else {
-		console.log('CACHE found    : ' + file_properties.pathname);
 		return cache[file_properties.pathname];
 	}
 }
 
-function set_cache(pathname, content) {
-	console.log('SET CACHE: ' + pathname);
-	cache[pathname] = content;
+function set_cache(file_properties, content) {
+	if (file_properties.cachable) {
+		cache[file_properties.pathname] = content;
+	}
 }
 
 exports.test_cache = test_cache;

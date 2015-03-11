@@ -13,12 +13,13 @@ var http_head = [];
 var http_head_inited = false;
 
 function init() {
-	http_head[".html"] = ["text/html", configuration.get_site_encoding()];
-	http_head[".css"] = ["text/css", configuration.get_site_encoding()];
-	http_head[".png"] = ["image/png", null];
-	http_head[".jpg"] = ["image/jpeg", null];
-	http_head[".jpeg"] = ["image/jpeg", null];
-	http_head[".js"] = ["application/javascript", null];
+	http_head[".html"] = ["text/html", configuration.get_site_encoding(), false];
+	http_head[".css"] = ["text/css", configuration.get_site_encoding(), true];
+	http_head[".png"] = ["image/png", null, false];
+	http_head[".jpg"] = ["image/jpeg", null, false];
+	http_head[".jpeg"] = ["image/jpeg", null, false];
+	http_head[".js"] = ["application/javascript", null, true];
+	http_head[".json"] = ["application/json", null, true];
 }
 
 function get_file_properties(pathname) {
@@ -26,7 +27,8 @@ function get_file_properties(pathname) {
 		pathname: pathname,
 		extension: null,
 		mime_type: 'text/plain',
-		encoding: null
+		encoding: null,
+		cachable: false
 	};
 	var ext = path.extname(pathname).toLocaleLowerCase();
 	var hh = http_head[ext];
@@ -34,6 +36,7 @@ function get_file_properties(pathname) {
 	if (hh !== undefined) {
 		fprops.mime_type = hh[0];
 		fprops.encoding = hh[1];
+		fprops.cachable = hh[2];
 	}
 	return fprops;
 }
@@ -47,7 +50,7 @@ function route(response, pathname) {
 			console.error('ERROR: ' + err);
 		} else {
 			response.write(filecontent);
-			cache.set_cache(filename, filecontent);
+			cache.set_cache(fprops, filecontent);
 		}
 		response.end();
 	}
