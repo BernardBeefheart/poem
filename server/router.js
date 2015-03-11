@@ -21,28 +21,6 @@ function init() {
 	http_head[".js"] = ["application/javascript", null];
 }
 
-/*
-function get_http_header(pathname) {
-	var ext = path.extname(pathname).toLocaleLowerCase();
-	var hh = http_head[ext];
-	if (hh === undefined) {
-		return "text/plain";
-	} else {
-		return hh[0];
-	}
-}
-
-function get_encoding(pathname) {
-	var ext = path.extname(pathname).toLocaleLowerCase();
-	var hh = http_head[ext];
-	if (hh === undefined) {
-		return null;
-	} else {
-		return hh[1];
-	}
-}
-*/
-
 function get_file_properties(pathname) {
 	var fprops = {
 		pathname: pathname,
