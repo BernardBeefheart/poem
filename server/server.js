@@ -18,7 +18,6 @@ function start(route) {
 			pathname = '/index.html';
 		}
 		console.log("Request for " + pathname + " received.");
-		response.writeHead(200, {"Content-Type": router.get_http_header(pathname)});
 		route(response, pathname);
 	}
 

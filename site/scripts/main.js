@@ -37,7 +37,8 @@ function load_main_menu() {
 			var len = feed.length;
 			var html = '';
 			for (var i = 0; i < len; i++) {
-				html += '<a href="' + feed[i].file + '">' + feed[i].title + '</a>';
+				var menuitem = feed[i];
+				html += '<a href="' + menuitem.file + '">' + menuitem.title + '</a>';
 			}
 			$("#mainmenu").html(html);
 		},

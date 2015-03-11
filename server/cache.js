@@ -30,6 +30,17 @@
 
 var cache = [];
 
-function test_and_set_cache(file_name) {
-	
+function test_cache(file_properties) {
+	if (cache[file_properties.pathname] === undefined) {
+		return null;
+	} else {
+		return cache[file_properties.pathname];
+	}
 }
+
+function set_cache(pathname, content) {
+	cache[pathname] = content;
+}
+
+exports.test_cache = test_cache;
+exports.set_cache = set_cache;
