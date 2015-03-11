@@ -61,18 +61,18 @@ function get_file_properties(pathname) {
 }
 
 function route(response, pathname) {
+	var filename = configuration.get_file_from_site(pathname);
+	var fprops = get_file_properties(filename);
+	var filecontent = cache.test_cache(fprops);
 	function on_file(err, filecontent) {
 		if (err) {
 			console.error('ERROR: ' + err);
 		} else {
 			response.write(filecontent);
-			cache.set_cache(pathname, filecontent);
+			cache.set_cache(filename, filecontent);
 		}
 		response.end();
 	}
-	var filename = configuration.get_file_from_site(pathname);
-	var fprops = get_file_properties(filename);
-	var filecontent = cache.test_cache(fprops);
 
 	console.log("About to route a request for " + pathname);
 	console.log("	real filename is " + filename);
