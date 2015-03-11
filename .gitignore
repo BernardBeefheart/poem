@@ -1,4 +1,7 @@
 *~
 .*.swp
-/.project
+/node_modules
+npm-debug.log
+.DS_Store
+/*.env/.project
 /nbproject/private/

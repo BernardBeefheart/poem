@@ -1,0 +1,22 @@
+{
+  "name": "poem",
+  "version": "0.0.2",
+  "description": "Blog engine with nodejs",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://BernardBeefheart@bitbucket.org/BernardBeefheart/poem.git"
+  },
+  "author": "Bernard Tatin",
+  "license": "MIT",
+  "engines": {
+    "node": "0.10.x"
+  }
+}
