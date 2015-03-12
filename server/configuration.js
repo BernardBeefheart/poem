@@ -5,22 +5,14 @@
 "use strict";
 
 var pages = require('./pages');
+var ConfigData = require('./ConfigData.js');
 
-var config_data = {
-	"site_name": "poem",
-	"port": 8887,
-	"site_root": "../site",
-	"site_encoding": "utf8"
-};
+var config_data = null;
 
 var main_menu = null;
 
 var jsconfig = './config/mainconfig.json';
 var jsmain_menu = '/mainmenu.json';
-
-function get_file_from_site(pathname) {
-	return config_data.site_root + pathname;
-}
 
 function get_site_encoding() {
 	return config_data.site_encoding;
@@ -40,15 +32,16 @@ function get_main_menu_in_HTML() {
 
 function init() {
 	try {
-		console.log("loading configuration ...");
-		config_data = pages.load_json_file(jsconfig);
-		console.log("loading configuration ok");
+		var data = pages.load_json_file(jsconfig);
+        config_data = new ConfigData(data.site_name, data.port, data.site_root, data.site_encoding);
+		console.log("loading configuration ok <" + config_data.site_root + '>');
 		try {
 			console.log("loading main menu ...");
-			main_menu = pages.load_json_file(get_file_from_site(jsmain_menu));
+			main_menu = pages.load_json_file(config_data.get_file_from_site(jsmain_menu));
 			console.log("loading main menu ok");
 		}
 		catch (err) {
+            config_data = new ConfigData("poem", 8887, "../site", "utf8");
 			console.error("ERR " + err + " Cannot read main menu file " + jsconfig);
 		}
 	}
@@ -57,9 +50,10 @@ function init() {
 	}
 }
 
+init();
 
-exports.init= init;
-exports.get_file_from_site = get_file_from_site;
+// exports.init= init;
+exports.config_data = config_data;
 exports.get_site_encoding = get_site_encoding;
 exports.get_port = get_port;
 exports.get_main_menu_in_HTML = get_main_menu_in_HTML;

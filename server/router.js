@@ -43,7 +43,7 @@ function get_file_properties(pathname) {
 }
 
 function route(response, pathname) {
-    var filename = configuration.get_file_from_site(pathname),
+    var filename = configuration.config_data.get_file_from_site(pathname),
             fprops = get_file_properties(filename),
             filecontent = cache.test_cache(fprops);
 
