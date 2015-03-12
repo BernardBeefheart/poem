@@ -2,6 +2,7 @@
  * index.js
  * from www.nodebeginner.org
  */
+"use strict";
 
 var server = require("./server/server");
 var router = require("./server/router");

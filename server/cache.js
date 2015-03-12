@@ -28,16 +28,18 @@
  * THE SOFTWARE.
  */
 
+"use strict";
+
 var cache = [];
 
 function test_cache(file_properties) {
 	if (!file_properties.cachable) {
 		return null;
-	} else if (cache[file_properties.pathname] === undefined) {
+	} 
+	if (cache[file_properties.pathname] === undefined) {
 		return null;
-	} else {
-		return cache[file_properties.pathname];
 	}
+	return cache[file_properties.pathname];
 }
 
 function set_cache(file_properties, content) {

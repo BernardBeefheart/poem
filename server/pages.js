@@ -28,6 +28,8 @@
  * THE SOFTWARE.
  */
 
+"use strict";
+
 var fs = require('fs');
 
 function load_json_file(filename) {
@@ -37,8 +39,8 @@ function load_json_file(filename) {
 
 function json_menu_to_html(menu) {
 	if (menu !== null) {
-		var len = menu.length;
-		var html = '';
+		var len = menu.length,
+		    html = '';
 		for (var i=0; i<len; i++) {
 			html += '<a href="' + menu[i].file + '">' + menu[i].title + '</a>';
 		}

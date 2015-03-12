@@ -27,25 +27,26 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+"use strict";
 
 
 function load_main_menu() {
-	$.ajax({
-		type: 'GET',
-		url: "/mainmenu.json",
-		success: function (feed) {
-			var len = feed.length;
-			var html = '';
-			for (var i = 0; i < len; i++) {
-				var menuitem = feed[i];
-				html += '<a href="' + menuitem.file + '">' + menuitem.title + '</a>';
-			}
-			$("#mainmenu").html(html);
-		},
-		dataType: 'json'
-	});
+    $.ajax({
+        type: 'GET',
+        url: "/mainmenu.json",
+        success: function (feed) {
+            var len = feed.length,
+                    html = '';
+            for (var i = 0; i < len; i++) {
+                var menuitem = feed[i];
+                html += '<a href="' + menuitem.file + '">' + menuitem.title + '</a>';
+            }
+            $("#mainmenu").html(html);
+        },
+        dataType: 'json'
+    });
 }
 
-$(document).ready(function(){
-	load_main_menu();
+$(document).ready(function () {
+    load_main_menu();
 });

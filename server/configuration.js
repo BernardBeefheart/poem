@@ -2,6 +2,7 @@
  * configuration.js
  *
  */
+"use strict";
 
 var pages = require('./pages');
 

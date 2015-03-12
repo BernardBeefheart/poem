@@ -2,6 +2,7 @@
  * server.js
  * from www.nodebeginner.org
  */
+"use strict";
 
 var http = require("http");
 var url = require("url");
