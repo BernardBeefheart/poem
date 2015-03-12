@@ -4,10 +4,10 @@
  */
 "use strict";
 
-var server = require("./server/server");
-var router = require("./server/router");
 var configuration = require("./server/configuration.js");
+var router = require("./server/router");
+var server = require("./server/server");
 
-// configuration.init_configuration();
+configuration.init();
 router.init();
 server.start(router.route);

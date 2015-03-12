@@ -6,7 +6,6 @@
 
 var http = require("http");
 var url = require("url");
-var router = require("./router");
 var configuration = require("./configuration.js");
 
 
@@ -18,7 +17,6 @@ function start(route) {
 		if (pathname === '/') {
 			pathname = '/index.html';
 		}
-		console.log("Request for " + pathname + " received.");
 		route(response, pathname);
 	}
 

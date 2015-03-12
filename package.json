@@ -1,6 +1,6 @@
 {
   "name": "poem",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Blog engine with nodejs",
   "main": "index.js",
   "directories": {

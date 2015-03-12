@@ -38,7 +38,7 @@ function get_main_menu_in_HTML() {
 	return pages.json_menu_to_html(main_menu);
 }
 
-function init_configuration() {
+function init() {
 	try {
 		console.log("loading configuration ...");
 		config_data = pages.load_json_file(jsconfig);
@@ -57,9 +57,8 @@ function init_configuration() {
 	}
 }
 
-init_configuration();
 
-exports.init_configuration = init_configuration;
+exports.init= init;
 exports.get_file_from_site = get_file_from_site;
 exports.get_site_encoding = get_site_encoding;
 exports.get_port = get_port;
