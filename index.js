@@ -4,10 +4,14 @@
  */
 "use strict";
 
+/*
+ * l'ordre des require est TRES important!
+ * pour l'initialisation
+ */
+
 var configuration = require("./server/configuration.js");
 var router = require("./server/router");
 var server = require("./server/server");
 
-// configuration.init();
 router.init();
 server.start(router.route);

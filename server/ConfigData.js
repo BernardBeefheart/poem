@@ -28,6 +28,10 @@
  * THE SOFTWARE.
  */
 
+/*
+ * important: voir ici http://openclassrooms.com/forum/sujet/nodejs-class-et-module
+ */
+
 function ConfigData(site_name, port, site_root, site_encoding) {
     this.site_name = site_name;
     this.port = port;
@@ -36,7 +40,6 @@ function ConfigData(site_name, port, site_root, site_encoding) {
 }
 
 ConfigData.prototype.get_file_from_site = function(pathname) {
-    console.log("get_file_from_site site_root = " + this.site_root);
 	return this.site_root + pathname;
 };
 
